@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "tsc",
+    "watch": "tsc --watch",
     "tslint": "node_modules/.bin/tslint -p tsconfig.json"
   },
   "engines": {
