@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
     selector: 'app-thumb-component',
@@ -12,12 +12,14 @@ import { Component, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./thumb.component.css']
 })
 
-export class ThumbComponent {
+export class ThumbComponent implements OnChanges {
     @Output()
     public promoIndex: EventEmitter<number> = new EventEmitter();
 
-    private current = 0;
+    @Input()
+    public imgIndex: number;
 
+    private current = 0;
     private thumbs: string[] = [
         '../../assets/thumb01.jpg',
         '../../assets/thumb02.jpg',
@@ -28,5 +30,9 @@ export class ThumbComponent {
     public clickHandler(index): void {
         this.current = index;
         this.promoIndex.emit(index);
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        this.current = changes.imgIndex.currentValue;
     }
 }

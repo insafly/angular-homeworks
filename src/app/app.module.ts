@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { ThumbComponent } from './thumb.component/thumb.component';
 import { PromoComponent } from './promo.component/promo.component';
 
+import { ImageService } from './image.service/image.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,7 @@ import { PromoComponent } from './promo.component/promo.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ImageService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
