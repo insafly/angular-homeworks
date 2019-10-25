@@ -36,7 +36,12 @@ const publisher1 = create((observer) => {
 
 // 2. даны два интервала один 100мс второй 300 мс -> слить их данные -> взять элементы с 5 по 12
 const publisher21 = interval(100);
-const publisher22 = interval(300).pipe(merge(publisher21)).pipe(skip(4)).pipe(take(8));
+const publisher22 = interval(300)
+  .pipe(
+    merge(publisher21),
+    skip(4),
+    take(8)
+  );
 
 // 3. Реализовать свой interval с помошью create
 const customInterval = (delay) => (
@@ -51,11 +56,9 @@ const customInterval = (delay) => (
 const publisher3 = customInterval(500);
 
 // 4. Реализовать свой from с помощью create
-const customFrom = (arr) => (
+const customFrom = (values) => (
   create((observer) => {
-    arr.forEach((element) => {
-      observer.next(element);
-    });
+    values.forEach((element) => observer.next(element));
     observer.complete();
   })
 );
@@ -63,15 +66,15 @@ const publisher4 = customFrom([0, 't', 1, 'r', 2, 'a', 3, 't', 4, 'a', 5, 't', 6
 
 // 5. Реализовать from with delay -> [arr], ms ->
 // эмититься занчение обсервера с интервалом указаным в милисекундах
-const customFromWithDelay = (arr, delay) => (
+const customFromWithDelay = (values, delay) => (
   create((observer) => {
     let i = 0;
     const int = setInterval(
       () => {
-        observer.next(arr[i]);
+        observer.next(values[i]);
         i += 1;
 
-        if (i === arr.length) {
+        if (i === values.length) {
           clearInterval(int);
           observer.complete();
         }
@@ -82,7 +85,7 @@ const customFromWithDelay = (arr, delay) => (
 );
 const publisher5 = customFromWithDelay([0, 't', 1, 'r', 2, 'a', 3, 't', 4, 'a', 5, 't', 6, 'a', 7], 500);
 
-const subscriber = publisher1.subscribe(
+const subscriber = publisher5.subscribe(
   (val) => {
     console.log(val);
   },
