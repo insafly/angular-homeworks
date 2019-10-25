@@ -2,10 +2,6 @@ import Converter from './Converter';
 import IConverter from './IConverter';
 
 export default class Octal extends Converter implements IConverter {
-  constructor() {
-    super();
-  }
-
   public convertTo(num: number): string {
     let tempStr: string = '';
     let tempNum: number = num;
