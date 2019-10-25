@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "devDependencies": {
     "tslint": "^5.20.0",
+    "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.3"
   },
   "scripts": {
     "start": "tsc",
+    "watch": "tsc --watch",
     "tslint": "node_modules/.bin/tslint -p tsconfig.json"
   },
   "engines": {

@@ -6,23 +6,25 @@ enum Forecast {
   snow,
 }
 
-const getRandom = (min: number, max: number): number => Math.floor(Math.random() * (max - min)) + min;
-const getForecast = (): Promise<string> => {
-  return new Promise<string>((resolve, reject) => {
+const getRandom = (min: number, max: number): number =>
+  Math.floor(Math.random() * (max - min)) + min;
+
+const getForecast = (): Promise<string> =>
+  new Promise<string>((resolve: any): void => {
     setTimeout(
       () => {
         resolve(Forecast[getRandom(0, Object.keys(Forecast).length / 2)]);
       },
       getRandom(500, 3500));
   });
-};
 
 const fastedForecast = (amount: number): void => {
   const base: number[] = Array.from({ length: amount });
 
   Promise.race(base.map(getForecast))
-    .then((res) => {
-      console.log(`The fastest forecast is "${res}"`);
+    .then((response: string): void => {
+      // tslint:disable-next-line:no-console
+      console.log(`The fastest forecast is "${response}"`);
     })
     .catch(console.error);
 };
@@ -31,23 +33,28 @@ const frequentForecast = (amount: number): void => {
   const base: number[] = Array.from({ length: amount });
 
   Promise.all(base.map(getForecast))
-    .then((res) => {
-      const counters: { [k: string]: number } = {};
-      let mostFrequentCounter: number = 0;
-      let mostFrequentValue: string = '';
+    .then((response: string[]): object => {
+      const counters: {[key: string]: number} = {};
 
-      for (const value of res) {
-        counters[value] === undefined ? counters[value] = 1 : counters[value] += 1;
+      for (const value of response) {
+        counters[value] = value ? (counters[value] || 0) + 1 : 1;
       }
 
-      for (const key in counters) {
-        if (mostFrequentCounter < counters[key]) {
-          mostFrequentCounter = counters[key];
+      return counters;
+    })
+    .then((response: object): void => {
+      let mostFrequentCounter: number = 0;
+      let mostFrequentValue: string = '';
+      for (const key: string in response) {
+        if (mostFrequentCounter < response[key]) {
+          mostFrequentCounter = response[key];
           mostFrequentValue = key;
-        } else if (mostFrequentCounter === counters[key]) {
+        } else if (mostFrequentCounter === response[key]) {
           mostFrequentValue += `, ${key}`;
         }
       }
+
+      // tslint:disable-next-line:no-console
       console.log(`Most frequent result is "${mostFrequentValue}" (${mostFrequentCounter} times)`);
     })
     .catch(console.error);
