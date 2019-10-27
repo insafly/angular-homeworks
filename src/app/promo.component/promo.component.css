@@ -1,0 +1,13 @@
+.promo {
+  width: 60%;
+  margin: 0 auto 100px;
+  border: 1px solid black;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.promo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
