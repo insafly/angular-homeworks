@@ -281,10 +281,10 @@ __webpack_require__.r(__webpack_exports__);
 
 let AppComponent = class AppComponent {
     constructor() {
-        this.promoSrc = '../../assets/img01.jpg';
+        this.promoSrc = 'assets/img01.jpg';
     }
     handler($event) {
-        this.promoSrc = `../../assets/img0${$event + 1}.jpg`;
+        this.promoSrc = `assets/img0${$event + 1}.jpg`;
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -427,10 +427,10 @@ let ThumbComponent = class ThumbComponent {
         this.promoIndex = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.current = 0;
         this.thumbs = [
-            '../../assets/thumb01.jpg',
-            '../../assets/thumb02.jpg',
-            '../../assets/thumb03.jpg',
-            '../../assets/thumb04.jpg'
+            'assets/thumb01.jpg',
+            'assets/thumb02.jpg',
+            'assets/thumb03.jpg',
+            'assets/thumb04.jpg'
         ];
     }
     clickHandler(index) {
