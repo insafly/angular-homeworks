@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <div id="wrapper">
-      <app-promo-component [src]="promoSrc"></app-promo-component>
-      <app-thumb-component (promoIndex)=handler($event)></app-thumb-component>
+      <app-promo [src]="promoSrc"></app-promo>
+      <app-thumb (promoIndex)="handler($event)"></app-thumb>
     </div>
   `,
   styleUrls: ['./app.component.css']

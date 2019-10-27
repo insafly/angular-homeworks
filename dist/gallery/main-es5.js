@@ -328,7 +328,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("#wrapper {\n   display: flex;\n   align-items: center;\n   height: 100vh;\n   width: 100%;\n   justify-content: center;\n   flex-direction: column;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7R0FDRyxhQUFhO0dBQ2IsbUJBQW1CO0dBQ25CLGFBQWE7R0FDYixXQUFXO0dBQ1gsdUJBQXVCO0dBQ3ZCLHNCQUFzQjtBQUN6QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3dyYXBwZXIge1xuICAgZGlzcGxheTogZmxleDtcbiAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICBoZWlnaHQ6IDEwMHZoO1xuICAgd2lkdGg6IDEwMCU7XG4gICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59Il19 */");
+            /* harmony default export */ __webpack_exports__["default"] = ("#wrapper {\n   display: flex;\n   align-items: center;\n   height: 100vh;\n   width: 100%;\n   justify-content: center;\n   flex-direction: column;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7R0FDRyxhQUFhO0dBQ2IsbUJBQW1CO0dBQ25CLGFBQWE7R0FDYixXQUFXO0dBQ1gsdUJBQXVCO0dBQ3ZCLHNCQUFzQjtBQUN6QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3dyYXBwZXIge1xuICAgZGlzcGxheTogZmxleDtcbiAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICBoZWlnaHQ6IDEwMHZoO1xuICAgd2lkdGg6IDEwMCU7XG4gICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG4iXX0= */");
             /***/ 
         }),
         /***/ "./src/app/app.component.ts": 
@@ -354,7 +354,7 @@
             AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-root',
-                    template: "\n    <div id=\"wrapper\">\n      <app-promo-component [src]=\"promoSrc\"></app-promo-component>\n      <app-thumb-component (promoIndex)=handler($event)></app-thumb-component>\n    </div>\n  ",
+                    template: "\n    <div id=\"wrapper\">\n      <app-promo [src]=\"promoSrc\"></app-promo>\n      <app-thumb (promoIndex)=\"handler($event)\"></app-thumb>\n    </div>\n  ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")).default]
                 })
             ], AppComponent);
@@ -404,7 +404,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".promo{\n    width: 60%;\n    margin:0 auto 100px;\n    border: 1px solid black;\n    padding: 10px;\n    box-shadow: 0 0 10px rgba(0, 0, 0, .3); \n}\n\n.promo img{\n    display: block;\n    width: 100%;\n    height: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvbW8uY29tcG9uZW50L3Byb21vLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxVQUFVO0lBQ1YsbUJBQW1CO0lBQ25CLHVCQUF1QjtJQUN2QixhQUFhO0lBQ2Isc0NBQXNDO0FBQzFDOztBQUVBO0lBQ0ksY0FBYztJQUNkLFdBQVc7SUFDWCxZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvcHJvbW8uY29tcG9uZW50L3Byb21vLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucHJvbW97XG4gICAgd2lkdGg6IDYwJTtcbiAgICBtYXJnaW46MCBhdXRvIDEwMHB4O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xuICAgIHBhZGRpbmc6IDEwcHg7XG4gICAgYm94LXNoYWRvdzogMCAwIDEwcHggcmdiYSgwLCAwLCAwLCAuMyk7IFxufVxuXG4ucHJvbW8gaW1ne1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogYXV0bztcbn0iXX0= */");
+            /* harmony default export */ __webpack_exports__["default"] = (".promo {\n  width: 60%;\n  margin: 0 auto 100px;\n  border: 1px solid black;\n  padding: 10px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);\n}\n\n.promo img {\n  display: block;\n  width: 100%;\n  height: auto;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvbW8uY29tcG9uZW50L3Byb21vLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxVQUFVO0VBQ1Ysb0JBQW9CO0VBQ3BCLHVCQUF1QjtFQUN2QixhQUFhO0VBQ2IsdUNBQXVDO0FBQ3pDOztBQUVBO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWCxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9wcm9tby5jb21wb25lbnQvcHJvbW8uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wcm9tbyB7XG4gIHdpZHRoOiA2MCU7XG4gIG1hcmdpbjogMCBhdXRvIDEwMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgcGFkZGluZzogMTBweDtcbiAgYm94LXNoYWRvdzogMCAwIDEwcHggcmdiYSgwLCAwLCAwLCAwLjMpO1xufVxuXG4ucHJvbW8gaW1nIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IGF1dG87XG59XG4iXX0= */");
             /***/ 
         }),
         /***/ "./src/app/promo.component/promo.component.ts": 
@@ -428,8 +428,8 @@
             ], PromoComponent.prototype, "src", void 0);
             PromoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-promo-component',
-                    template: "\n        <div class=\"promo\">\n            <img [src]=\"src\" alt=\"image description\" />\n        </div>\n    ",
+                    selector: 'app-promo',
+                    template: "\n      <div class=\"promo\">\n          <img [src]=\"src\" alt=\"image description\" />\n      </div>\n  ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./promo.component.css */ "./src/app/promo.component/promo.component.css")).default]
                 })
             ], PromoComponent);
@@ -443,7 +443,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".thumbs{\n    margin: 0 auto;\n    padding: 0;\n    list-style: none;\n    text-align: center;\n}\n\n.thumbs li{\n    width: 20%;\n    margin: 0 1%;\n    padding: 3px;\n    display: inline-block;\n    vertical-align: top;\n}\n\n.thumbs li.active {\n    box-shadow: 0 0 10px rgba(0, 0, 0, .3), 0 0 0 1px black;\n}\n\n.thumbs img{\n    display: block;\n    width: 100%;\n    height: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGh1bWIuY29tcG9uZW50L3RodW1iLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0lBQ2QsVUFBVTtJQUNWLGdCQUFnQjtJQUNoQixrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxVQUFVO0lBQ1YsWUFBWTtJQUNaLFlBQVk7SUFDWixxQkFBcUI7SUFDckIsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0ksdURBQXVEO0FBQzNEOztBQUVBO0lBQ0ksY0FBYztJQUNkLFdBQVc7SUFDWCxZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvdGh1bWIuY29tcG9uZW50L3RodW1iLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGh1bWJze1xuICAgIG1hcmdpbjogMCBhdXRvO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgbGlzdC1zdHlsZTogbm9uZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi50aHVtYnMgbGl7XG4gICAgd2lkdGg6IDIwJTtcbiAgICBtYXJnaW46IDAgMSU7XG4gICAgcGFkZGluZzogM3B4O1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xufVxuXG4udGh1bWJzIGxpLmFjdGl2ZSB7XG4gICAgYm94LXNoYWRvdzogMCAwIDEwcHggcmdiYSgwLCAwLCAwLCAuMyksIDAgMCAwIDFweCBibGFjaztcbn1cblxuLnRodW1icyBpbWd7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiBhdXRvO1xufSJdfQ== */");
+            /* harmony default export */ __webpack_exports__["default"] = (".thumbs {\n  margin: 0 auto;\n  padding: 0;\n  list-style: none;\n  text-align: center;\n}\n\n.thumbs li {\n  width: 20%;\n  margin: 0 1%;\n  padding: 3px;\n  display: inline-block;\n  vertical-align: top;\n}\n\n.thumbs li.active {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 0 1px black;\n}\n\n.thumbs img {\n  display: block;\n  width: 100%;\n  height: auto;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGh1bWIuY29tcG9uZW50L3RodW1iLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFjO0VBQ2QsVUFBVTtFQUNWLGdCQUFnQjtFQUNoQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxVQUFVO0VBQ1YsWUFBWTtFQUNaLFlBQVk7RUFDWixxQkFBcUI7RUFDckIsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0Usd0RBQXdEO0FBQzFEOztBQUVBO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWCxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC90aHVtYi5jb21wb25lbnQvdGh1bWIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50aHVtYnMge1xuICBtYXJnaW46IDAgYXV0bztcbiAgcGFkZGluZzogMDtcbiAgbGlzdC1zdHlsZTogbm9uZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4udGh1bWJzIGxpIHtcbiAgd2lkdGg6IDIwJTtcbiAgbWFyZ2luOiAwIDElO1xuICBwYWRkaW5nOiAzcHg7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgdmVydGljYWwtYWxpZ246IHRvcDtcbn1cblxuLnRodW1icyBsaS5hY3RpdmUge1xuICBib3gtc2hhZG93OiAwIDAgMTBweCByZ2JhKDAsIDAsIDAsIDAuMyksIDAgMCAwIDFweCBibGFjaztcbn1cblxuLnRodW1icyBpbWcge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogYXV0bztcbn1cbiJdfQ== */");
             /***/ 
         }),
         /***/ "./src/app/thumb.component/thumb.component.ts": 
@@ -479,8 +479,8 @@
             ], ThumbComponent.prototype, "promoIndex", void 0);
             ThumbComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-thumb-component',
-                    template: "\n        <ul class=\"thumbs\">\n            <li *ngFor=\"let thumb of thumbs; let i = index\" [class]=\"i === current ? 'active' : ''\">\n                <img (click)=\"clickHandler(i)\" [src]=\"thumb\" alt=\"thumb description\" />\n            </li>\n        </ul>\n    ",
+                    selector: 'app-thumb',
+                    template: "\n      <ul class=\"thumbs\">\n          <li *ngFor=\"let thumb of thumbs; let i = index\" [class]=\"i === current ? 'active' : ''\">\n              <img (click)=\"clickHandler(i)\" [src]=\"thumb\" alt=\"thumb description\" />\n          </li>\n      </ul>\n  ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./thumb.component.css */ "./src/app/thumb.component/thumb.component.css")).default]
                 })
             ], ThumbComponent);
