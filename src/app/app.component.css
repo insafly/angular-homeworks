@@ -1,0 +1,44 @@
+.holder {
+  display: flex;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 100%;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  padding: 0 10%;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+}
+.result {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+hr {
+  color: black;
+  display: block;
+  width: 60%;
+  margin: 40px auto;
+}

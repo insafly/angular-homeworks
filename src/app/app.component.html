@@ -1,0 +1,23 @@
+<div class="holder">
+  <div class="form">
+    <label for="text01">Convert text to Morse:</label>
+    <input 
+      type="text" id="text01"
+      [(ngModel)]="textToMorse"
+    >
+  </div>
+  <div class="result">
+    <p><b>Result: </b> {{ textToMorse | TextToMorsePipe }}</p>
+  </div>
+  <hr />
+  <div class="form">
+    <label for="text02">Convert Morse to text:</label>
+    <input 
+      type="text" id="text02"
+      [(ngModel)]="morseToText"
+    >
+  </div>
+  <div class="result">
+    <p><b>Result: </b> {{ morseToText | MorseToTextPipe }}</p>
+  </div>
+</div>
