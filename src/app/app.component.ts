@@ -12,10 +12,10 @@ import { Component } from '@angular/core';
 })
 
 class AppComponent {
-  public promoSrc = '../../assets/img01.jpg';
+  public promoSrc = 'assets/img01.jpg';
 
   public handler($event: number): void {
-    this.promoSrc = `../../assets/img0${ $event + 1 }.jpg`;
+    this.promoSrc = `assets/img0${ $event + 1 }.jpg`;
   }
 }
 

@@ -344,10 +344,10 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             var AppComponent = /** @class */ (function () {
                 function AppComponent() {
-                    this.promoSrc = '../../assets/img01.jpg';
+                    this.promoSrc = 'assets/img01.jpg';
                 }
                 AppComponent.prototype.handler = function ($event) {
-                    this.promoSrc = "../../assets/img0" + ($event + 1) + ".jpg";
+                    this.promoSrc = "assets/img0" + ($event + 1) + ".jpg";
                 };
                 return AppComponent;
             }());

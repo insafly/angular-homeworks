@@ -281,10 +281,10 @@ __webpack_require__.r(__webpack_exports__);
 
 let AppComponent = class AppComponent {
     constructor() {
-        this.promoSrc = '../../assets/img01.jpg';
+        this.promoSrc = 'assets/img01.jpg';
     }
     handler($event) {
-        this.promoSrc = `../../assets/img0${$event + 1}.jpg`;
+        this.promoSrc = `assets/img0${$event + 1}.jpg`;
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
