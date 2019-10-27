@@ -462,10 +462,10 @@
                     this.promoIndex = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
                     this.current = 0;
                     this.thumbs = [
-                        '../../assets/thumb01.jpg',
-                        '../../assets/thumb02.jpg',
-                        '../../assets/thumb03.jpg',
-                        '../../assets/thumb04.jpg'
+                        'assets/thumb01.jpg',
+                        'assets/thumb02.jpg',
+                        'assets/thumb03.jpg',
+                        'assets/thumb04.jpg'
                     ];
                 }
                 ThumbComponent.prototype.clickHandler = function (index) {

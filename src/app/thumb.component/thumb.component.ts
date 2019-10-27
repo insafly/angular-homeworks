@@ -19,10 +19,10 @@ export class ThumbComponent {
     private current = 0;
 
     private thumbs: string[] = [
-        '../../assets/thumb01.jpg',
-        '../../assets/thumb02.jpg',
-        '../../assets/thumb03.jpg',
-        '../../assets/thumb04.jpg'
+        'assets/thumb01.jpg',
+        'assets/thumb02.jpg',
+        'assets/thumb03.jpg',
+        'assets/thumb04.jpg'
     ];
 
     public clickHandler(index): void {
