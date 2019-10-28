@@ -16,7 +16,7 @@ import { ImageService } from './image.service/image.service';
   imports: [
     BrowserModule
   ],
-  providers: [ ImageService ],
-  bootstrap: [ AppComponent ]
+  providers: [ImageService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

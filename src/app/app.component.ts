@@ -16,10 +16,10 @@ import { Subscription } from 'rxjs';
 class AppComponent implements OnInit, OnDestroy, DoCheck {
   public imgIndex: number;
   private listener: Subscription;
-  public promoSrc = '../../assets/img01.jpg';
+  public promoSrc = 'assets/img01.jpg';
   private wasClicked = false;
   private timer: number;
-  public getSrc = (i: number): string => `../../assets/img0${i + 1}.jpg`;
+  public getSrc = (i: number): string => `assets/img0${i + 1}.jpg`;
 
   constructor(private service: ImageService) { }
 
@@ -29,10 +29,13 @@ class AppComponent implements OnInit, OnDestroy, DoCheck {
     this.promoSrc = this.getSrc($event);
 
     clearTimeout(this.timer);
-    this.timer = window.setTimeout((): void => {
-      this.wasClicked = false;
-      this.subscribe();
-    }, 6000);
+    this.timer = window.setTimeout(
+      (): void => {
+        this.wasClicked = false;
+        this.subscribe();
+      },
+      6000
+    );
   }
 
   subscribe(): void {
