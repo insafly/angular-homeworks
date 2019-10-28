@@ -328,7 +328,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("#wrapper {\n   display: flex;\n   align-items: center;\n   height: 100vh;\n   width: 100%;\n   justify-content: center;\n   flex-direction: column;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7R0FDRyxhQUFhO0dBQ2IsbUJBQW1CO0dBQ25CLGFBQWE7R0FDYixXQUFXO0dBQ1gsdUJBQXVCO0dBQ3ZCLHNCQUFzQjtBQUN6QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3dyYXBwZXIge1xuICAgZGlzcGxheTogZmxleDtcbiAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICBoZWlnaHQ6IDEwMHZoO1xuICAgd2lkdGg6IDEwMCU7XG4gICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG4iXX0= */");
+            /* harmony default export */ __webpack_exports__["default"] = ("#wrapper {\n  display: flex;\n  align-items: center;\n  height: 100vh;\n  width: 100%;\n  justify-content: center;\n  flex-direction: column;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGFBQWE7RUFDYixXQUFXO0VBQ1gsdUJBQXVCO0VBQ3ZCLHNCQUFzQjtBQUN4QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3dyYXBwZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBoZWlnaHQ6IDEwMHZoO1xuICB3aWR0aDogMTAwJTtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG4iXX0= */");
             /***/ 
         }),
         /***/ "./src/app/app.component.ts": 
@@ -342,19 +342,51 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function () { return AppComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _image_service_image_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./image.service/image.service */ "./src/app/image.service/image.service.ts");
             var AppComponent = /** @class */ (function () {
-                function AppComponent() {
+                function AppComponent(service) {
+                    this.service = service;
                     this.promoSrc = 'assets/img01.jpg';
+                    this.wasClicked = false;
+                    this.getSrc = function (i) { return "assets/img0" + (i + 1) + ".jpg"; };
                 }
                 AppComponent.prototype.handler = function ($event) {
-                    this.promoSrc = "assets/img0" + ($event + 1) + ".jpg";
+                    var _this = this;
+                    this.wasClicked = true;
+                    this.listener.unsubscribe();
+                    this.promoSrc = this.getSrc($event);
+                    clearTimeout(this.timer);
+                    this.timer = window.setTimeout(function () {
+                        _this.wasClicked = false;
+                        _this.subscribe();
+                    }, 6000);
+                };
+                AppComponent.prototype.subscribe = function () {
+                    var _this = this;
+                    this.listener = this.service.dataSource.subscribe(function (data) {
+                        _this.imgIndex = data;
+                    });
+                };
+                AppComponent.prototype.ngOnInit = function () {
+                    this.subscribe();
+                };
+                AppComponent.prototype.ngDoCheck = function () {
+                    if (!this.wasClicked) {
+                        this.promoSrc = this.getSrc(this.imgIndex);
+                    }
+                };
+                AppComponent.prototype.ngOnDestroy = function () {
+                    this.listener.unsubscribe();
                 };
                 return AppComponent;
             }());
+            AppComponent.ctorParameters = function () { return [
+                { type: _image_service_image_service__WEBPACK_IMPORTED_MODULE_2__["ImageService"] }
+            ]; };
             AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-root',
-                    template: "\n    <div id=\"wrapper\">\n      <app-promo [src]=\"promoSrc\"></app-promo>\n      <app-thumb (promoIndex)=\"handler($event)\"></app-thumb>\n    </div>\n  ",
+                    template: "\n    <div id=\"wrapper\">\n      <app-promo-component [src]=\"promoSrc\"></app-promo-component>\n      <app-thumb-component [imgIndex]=\"imgIndex\" (promoIndex)=handler($event)></app-thumb-component>\n    </div>\n  ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")).default]
                 })
             ], AppComponent);
@@ -375,6 +407,7 @@
             /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
             /* harmony import */ var _thumb_component_thumb_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./thumb.component/thumb.component */ "./src/app/thumb.component/thumb.component.ts");
             /* harmony import */ var _promo_component_promo_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./promo.component/promo.component */ "./src/app/promo.component/promo.component.ts");
+            /* harmony import */ var _image_service_image_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./image.service/image.service */ "./src/app/image.service/image.service.ts");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -390,10 +423,35 @@
                     imports: [
                         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]
                     ],
-                    providers: [],
+                    providers: [_image_service_image_service__WEBPACK_IMPORTED_MODULE_6__["ImageService"]],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
                 })
             ], AppModule);
+            /***/ 
+        }),
+        /***/ "./src/app/image.service/image.service.ts": 
+        /*!************************************************!*\
+          !*** ./src/app/image.service/image.service.ts ***!
+          \************************************************/
+        /*! exports provided: ImageService */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageService", function () { return ImageService; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+            var random = Math.random, floor = Math.floor;
+            var ImageService = /** @class */ (function () {
+                function ImageService() {
+                    this.dataSource = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (emitter) {
+                        emitter.next(floor(random() * 4));
+                        setInterval(function () {
+                            emitter.next(floor(random() * 4));
+                        }, 6000);
+                    });
+                }
+                return ImageService;
+            }());
             /***/ 
         }),
         /***/ "./src/app/promo.component/promo.component.css": 
@@ -428,8 +486,8 @@
             ], PromoComponent.prototype, "src", void 0);
             PromoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-promo',
-                    template: "\n      <div class=\"promo\">\n          <img [src]=\"src\" alt=\"image description\" />\n      </div>\n  ",
+                    selector: 'app-promo-component',
+                    template: "\n    <div class=\"promo\">\n      <img [src]=\"src\" alt=\"image description\" />\n    </div>\n  ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./promo.component.css */ "./src/app/promo.component/promo.component.css")).default]
                 })
             ], PromoComponent);
@@ -472,15 +530,21 @@
                     this.current = index;
                     this.promoIndex.emit(index);
                 };
+                ThumbComponent.prototype.ngOnChanges = function (changes) {
+                    this.current = changes.imgIndex.currentValue;
+                };
                 return ThumbComponent;
             }());
             tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
             ], ThumbComponent.prototype, "promoIndex", void 0);
+            tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+            ], ThumbComponent.prototype, "imgIndex", void 0);
             ThumbComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-thumb',
-                    template: "\n      <ul class=\"thumbs\">\n          <li *ngFor=\"let thumb of thumbs; let i = index\" [class]=\"i === current ? 'active' : ''\">\n              <img (click)=\"clickHandler(i)\" [src]=\"thumb\" alt=\"thumb description\" />\n          </li>\n      </ul>\n  ",
+                    selector: 'app-thumb-component',
+                    template: "\n        <ul class=\"thumbs\">\n            <li *ngFor=\"let thumb of thumbs; let i = index\" [class]=\"i === current ? 'active' : ''\">\n                <img (click)=\"clickHandler(i)\" [src]=\"thumb\" alt=\"thumb description\" />\n            </li>\n        </ul>\n    ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./thumb.component.css */ "./src/app/thumb.component/thumb.component.css")).default]
                 })
             ], ThumbComponent);
